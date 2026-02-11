@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite CV Templates - 20 Professional Designs</title>
+    <title>Elite CV Templates - 8 Professional Designs</title>
     <style>
         * {
             margin: 0;
@@ -118,7 +118,7 @@
 
         .templates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
@@ -136,80 +136,14 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        .template-preview {
-            height: 320px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Mock CV Designs */
-        .cv-mock {
-            position: absolute;
-            width: 85%;
-            height: 90%;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            top: 5%;
-            left: 7.5%;
-            padding: 1rem;
-        }
-
-        .cv-header {
-            height: 60px;
-            background: var(--primary);
-            border-radius: 4px 4px 0 0;
-            margin: -1rem -1rem 1rem -1rem;
-            opacity: 0.8;
-        }
-
-        .cv-line {
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            margin-bottom: 8px;
-        }
-
-        .cv-line.short { width: 60%; }
-        .cv-line.medium { width: 80%; }
-        .cv-line.long { width: 100%; }
-
-        .cv-sidebar {
-            position: absolute;
-            left: 0;
-            top: 60px;
-            bottom: 0;
-            width: 30%;
+        .template-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: top;
             background: #f1f5f9;
-            padding: 1rem;
+            display: block;
         }
-
-        .cv-content {
-            margin-left: 35%;
-            padding-top: 1rem;
-        }
-
-        /* Template variations */
-        .template-card:nth-child(2) .cv-header { background: #ec4899; }
-        .template-card:nth-child(3) .cv-header { background: #10b981; }
-        .template-card:nth-child(4) .cv-header { background: #f59e0b; }
-        .template-card:nth-child(5) .cv-header { background: #8b5cf6; }
-        .template-card:nth-child(6) .cv-header { background: #ef4444; }
-        .template-card:nth-child(7) .cv-header { background: #06b6d4; }
-        .template-card:nth-child(8) .cv-header { background: #84cc16; }
-        .template-card:nth-child(9) .cv-header { background: #f97316; }
-        .template-card:nth-child(10) .cv-header { background: #6366f1; }
-        .template-card:nth-child(11) .cv-header { background: #14b8a6; }
-        .template-card:nth-child(12) .cv-header { background: #d946ef; }
-        .template-card:nth-child(13) .cv-header { background: #eab308; }
-        .template-card:nth-child(14) .cv-header { background: #3b82f6; }
-        .template-card:nth-child(15) .cv-header { background: #22c55e; }
-        .template-card:nth-child(16) .cv-header { background: #a855f7; }
-        .template-card:nth-child(17) .cv-header { background: #e11d48; }
-        .template-card:nth-child(18) .cv-header { background: #0ea5e9; }
-        .template-card:nth-child(19) .cv-header { background: #65a30d; }
-        .template-card:nth-child(20) .cv-header { background: #db2777; }
 
         .template-info {
             padding: 1.5rem;
@@ -274,6 +208,71 @@
             opacity: 0.9;
         }
 
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -289,6 +288,7 @@
             border-radius: 15px;
             margin: 2rem 0;
             text-align: center;
+            color: white;
         }
 
         .guarantee h3 {
@@ -303,6 +303,14 @@
             
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .template-image {
+                height: 300px;
+            }
+
+            .lightbox-nav {
+                display: none;
             }
         }
 
@@ -324,33 +332,21 @@
         .template-card:nth-child(6) { animation-delay: 0.6s; }
         .template-card:nth-child(7) { animation-delay: 0.7s; }
         .template-card:nth-child(8) { animation-delay: 0.8s; }
-        .template-card:nth-child(9) { animation-delay: 0.9s; }
-        .template-card:nth-child(10) { animation-delay: 1.0s; }
-        .template-card:nth-child(11) { animation-delay: 1.1s; }
-        .template-card:nth-child(12) { animation-delay: 1.2s; }
-        .template-card:nth-child(13) { animation-delay: 1.3s; }
-        .template-card:nth-child(14) { animation-delay: 1.4s; }
-        .template-card:nth-child(15) { animation-delay: 1.5s; }
-        .template-card:nth-child(16) { animation-delay: 1.6s; }
-        .template-card:nth-child(17) { animation-delay: 1.7s; }
-        .template-card:nth-child(18) { animation-delay: 1.8s; }
-        .template-card:nth-child(19) { animation-delay: 1.9s; }
-        .template-card:nth-child(20) { animation-delay: 2.0s; }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
             <div class="logo">Elite CV Templates</div>
-            <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank">Get All 20 Templates</a>
+            <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank">Get All 8 Templates</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="container">
-            <span class="badge">20 Professional Designs</span>
+            <span class="badge">8 Professional Designs</span>
             <h1>Land Your Dream Job</h1>
-            <p>Stand out with our collection of 20 meticulously designed CV templates. ATS-friendly, modern, and crafted by professional designers.</p>
+            <p>Stand out with our collection of 8 meticulously designed CV templates. ATS-friendly, modern, and crafted by professional designers.</p>
             <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank" style="font-size: 1.25rem; padding: 1rem 2rem;">Get Instant Access</a>
         </div>
     </section>
@@ -377,53 +373,77 @@
         </div>
     </footer>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#8249;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="CV Template">
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#8250;</button>
+    </div>
+
     <script>
         const templates = [
-            { name: "Modern Professional", desc: "Clean layout with subtle colors", tags: ["ATS-Friendly", "Minimal"] },
-            { name: "Creative Bold", desc: "Stand out with vibrant accents", tags: ["Creative", "Bold"] },
-            { name: "Executive Classic", desc: "Traditional elegance for senior roles", tags: ["Professional", "Classic"] },
-            { name: "Tech Minimalist", desc: "Perfect for IT and engineering", tags: ["Tech", "Clean"] },
-            { name: "Corporate Blue", desc: "Trustworthy and professional", tags: ["Business", "Corporate"] },
-            { name: "Startup Dynamic", desc: "Energetic design for innovators", tags: ["Modern", "Dynamic"] },
-            { name: "Academic Scholar", desc: "Comprehensive for researchers", tags: ["Academic", "Detailed"] },
-            { name: "Designer Portfolio", desc: "Showcase your creative work", tags: ["Portfolio", "Visual"] },
-            { name: "Medical Professional", desc: "Clean and trustworthy", tags: ["Healthcare", "Clean"] },
-            { name: "Finance Expert", desc: "Conservative and credible", tags: ["Finance", "Conservative"] },
-            { name: "Marketing Guru", desc: "Bold and persuasive layout", tags: ["Marketing", "Bold"] },
-            { name: "Entry Level", desc: "Highlight potential and skills", tags: ["Graduate", "Skills-focused"] },
-            { name: "International", desc: "Global format, multilingual ready", tags: ["Global", "Versatile"] },
-            { name: "Project Manager", desc: "Showcase leadership experience", tags: ["Management", "Structured"] },
-            { name: "Freelancer", desc: "Highlight diverse project experience", tags: ["Flexible", "Project-based"] },
-            { name: "Legal Professional", desc: "Formal and authoritative", tags: ["Legal", "Formal"] },
-            { name: "Sales Champion", desc: "Results-driven layout", tags: ["Sales", "Achievement-focused"] },
-            { name: "Creative Writer", desc: "Elegant typography focus", tags: ["Writing", "Elegant"] },
-            { name: "Engineering Precise", desc: "Technical skills emphasis", tags: ["Engineering", "Technical"] },
-            { name: "Hybrid Skills", desc: "Combine experience and skills", tags: ["Versatile", "Modern"] }
+            { 
+                file: "CV1.png", 
+                name: "Modern Professional", 
+                desc: "Clean layout with subtle colors, perfect for any industry",
+                tags: ["ATS-Friendly", "Minimal", "Universal"]
+            },
+            { 
+                file: "CV2.jpg", 
+                name: "Creative Bold", 
+                desc: "Stand out with vibrant accents and modern design",
+                tags: ["Creative", "Bold", "Designers"]
+            },
+            { 
+                file: "CV3.png", 
+                name: "Executive Classic", 
+                desc: "Traditional elegance for senior and management roles",
+                tags: ["Professional", "Classic", "Executive"]
+            },
+            { 
+                file: "CV4.png", 
+                name: "Tech Minimalist", 
+                desc: "Perfect for IT, engineering, and technical positions",
+                tags: ["Tech", "Clean", "Engineering"]
+            },
+            { 
+                file: "CV5.jpg", 
+                name: "Corporate Blue", 
+                desc: "Trustworthy and professional for corporate environments",
+                tags: ["Business", "Corporate", "Finance"]
+            },
+            { 
+                file: "CV6.png", 
+                name: "Startup Dynamic", 
+                desc: "Energetic design for innovators and entrepreneurs",
+                tags: ["Modern", "Dynamic", "Startup"]
+            },
+            { 
+                file: "CV7.jpg", 
+                name: "Academic Scholar", 
+                desc: "Comprehensive layout for researchers and academics",
+                tags: ["Academic", "Detailed", "Education"]
+            },
+            { 
+                file: "CV8.jpg", 
+                name: "Designer Portfolio", 
+                desc: "Showcase your creative work with visual emphasis",
+                tags: ["Portfolio", "Visual", "Creative"]
+            }
         ];
 
+        let currentImageIndex = 0;
         const grid = document.getElementById('templatesGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
 
+        // Generate template cards
         templates.forEach((template, index) => {
             const card = document.createElement('div');
             card.className = 'template-card';
             card.innerHTML = `
-                <div class="template-preview">
-                    <div class="cv-mock">
-                        <div class="cv-header"></div>
-                        <div class="cv-sidebar">
-                            <div class="cv-line short"></div>
-                            <div class="cv-line medium"></div>
-                            <div class="cv-line short"></div>
-                        </div>
-                        <div class="cv-content">
-                            <div class="cv-line long"></div>
-                            <div class="cv-line medium"></div>
-                            <div class="cv-line long"></div>
-                            <div class="cv-line short"></div>
-                            <div class="cv-line medium"></div>
-                        </div>
-                    </div>
-                </div>
+                <img src="${template.file}" alt="${template.name}" class="template-image" onclick="openLightbox(${index})" style="cursor: pointer;">
                 <div class="template-info">
                     <span class="template-number">${index + 1}</span>
                     <h3 class="template-name">${template.name}</h3>
@@ -437,21 +457,52 @@
             grid.appendChild(card);
         });
 
-        // Add smooth scroll behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        // Lightbox functions
+        function openLightbox(index) {
+            currentImageIndex = index;
+            lightboxImg.src = templates[index].file;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = templates.length - 1;
+            if (currentImageIndex >= templates.length) currentImageIndex = 0;
+            lightboxImg.src = templates[currentImageIndex].file;
+        }
+
+        // Close lightbox with escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
         });
 
-        // Track clicks for analytics (optional)
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.addEventListener('click', () => {
-                console.log('Gumroad link clicked');
-            });
+        // Close lightbox when clicking outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Check if images exist and handle errors
+        document.querySelectorAll('.template-image').forEach(img => {
+            img.onerror = function() {
+                this.style.display = 'none';
+                this.parentElement.innerHTML += `
+                    <div style="height: 400px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #94a3b8; flex-direction: column;">
+                        <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <p style="margin-top: 1rem;">Image not found</p>
+                        <p style="font-size: 0.875rem;">${img.src}</p>
+                    </div>
+                `;
+            };
         });
     </script>
 </body>
