@@ -111,23 +111,15 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Trusted By Section - Full Width */
+        /* Trusted By Section - Scrolling Marquee */
         .trusted-by {
             background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 0;
+            padding: 2rem 0;
             margin: 2rem 0;
             position: relative;
             overflow: hidden;
-        }
-
-        .trusted-by::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            border-top: 4px solid;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary)) 1;
         }
 
         .trusted-header {
@@ -136,19 +128,23 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--gray);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
         }
 
-        .logos-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
         }
 
         .company-logo {
@@ -158,6 +154,9 @@
             opacity: 0.6;
             transition: opacity 0.3s, transform 0.3s;
             white-space: nowrap;
+            padding: 0 3rem;
+            display: inline-flex;
+            align-items: center;
         }
 
         .company-logo:hover {
@@ -167,12 +166,21 @@
 
         /* Specific colors for each company */
         .company-logo.microsoft:hover { color: #00a4ef; }
-        .company-logo.thales:hover { color: #e3001b; }
         .company-logo.google:hover { color: #4285f4; }
         .company-logo.amazon:hover { color: #ff9900; }
         .company-logo.meta:hover { color: #0668e1; }
-        .company-logo.kongsberg:hover { color: #00843d; }
         .company-logo.tesla:hover { color: #cc0000; }
+        .company-logo.thales:hover { color: #e3001b; }
+        .company-logo.kongsberg:hover { color: #00843d; }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
         /* Templates Section */
         .templates-section {
@@ -407,12 +415,9 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .logos-container {
-                gap: 2rem;
-            }
-            
             .company-logo {
                 font-size: 1.2rem;
+                padding: 0 2rem;
             }
 
             .templates-grid {
@@ -454,16 +459,7 @@
         .template-card:nth-child(6) { animation-delay: 0.6s; }
         .template-card:nth-child(7) { animation-delay: 0.7s; }
         .template-card:nth-child(8) { animation-delay: 0.8s; }
-
-        /* Scroll reveal animation for trusted section */
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .trusted-by {
-            animation: slideIn 0.8s ease-out;
-        }
+        .template-card:nth-child(9) { animation-delay: 0.9s; }
     </style>
 </head>
 <body>
@@ -483,17 +479,28 @@
         </div>
     </section>
 
-    <!-- Trusted By Section - Full Width -->
+    <!-- Trusted By Section - Scrolling Marquee -->
     <section class="trusted-by">
         <div class="trusted-header">Trusted by professionals from</div>
-        <div class="logos-container">
-            <div class="company-logo microsoft">Microsoft</div>
-            <div class="company-logo google">Google</div>
-            <div class="company-logo amazon">Amazon</div>
-            <div class="company-logo meta">Meta</div>
-            <div class="company-logo tesla">Tesla</div>
-            <div class="company-logo thales">Thales</div>
-            <div class="company-logo kongsberg">Kongsberg</div>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <!-- First set -->
+                <div class="company-logo microsoft">Microsoft</div>
+                <div class="company-logo google">Google</div>
+                <div class="company-logo amazon">Amazon</div>
+                <div class="company-logo meta">Meta</div>
+                <div class="company-logo tesla">Tesla</div>
+                <div class="company-logo thales">Thales</div>
+                <div class="company-logo kongsberg">Kongsberg</div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="company-logo microsoft">Microsoft</div>
+                <div class="company-logo google">Google</div>
+                <div class="company-logo amazon">Amazon</div>
+                <div class="company-logo meta">Meta</div>
+                <div class="company-logo tesla">Tesla</div>
+                <div class="company-logo thales">Thales</div>
+                <div class="company-logo kongsberg">Kongsberg</div>
+            </div>
         </div>
     </section>
 
@@ -501,7 +508,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Sample Templates</h2>
-                <p>8 of our 20+ premium designs. Get the full collection instantly.</p>
+                <p>9 of our 20+ premium designs. Get the full collection instantly.</p>
             </div>
             <div class="templates-grid" id="templatesGrid">
                 <!-- Templates will be generated by JavaScript -->
@@ -511,7 +518,7 @@
 
     <section class="cta-section">
         <div class="container">
-            <h2>And 12 More Unique Designs...</h2>
+            <h2>And 11 More Unique Designs...</h2>
             <p>Don't settle for ordinary. Get the complete collection and find your perfect match.</p>
             <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank" style="font-size: 1.25rem; padding: 1rem 2rem;">Get All 20+ Templates</a>
         </div>
@@ -588,6 +595,12 @@
                 name: "Designer Portfolio", 
                 desc: "Showcase your creative work with visual emphasis",
                 tags: ["Portfolio", "Visual", "Creative"]
+            },
+            { 
+                file: "CV9.png", 
+                name: "Executive Premium", 
+                desc: "Sophisticated design for C-level and director positions",
+                tags: ["Executive", "Premium", "Leadership"]
             }
         ];
 
