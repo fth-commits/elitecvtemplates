@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite CV Templates - 20 Professional Designs!</title>
+    <title>Elite CV Templates - 20+ Professional Designs</title>
     <style>
         * {
             margin: 0;
@@ -111,9 +111,88 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Templates Grid */
+        /* Trusted By Section - Full Width */
+        .trusted-by {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trusted-by::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+        }
+
+        .trusted-header {
+            text-align: center;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .company-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            opacity: 0.6;
+            transition: opacity 0.3s, transform 0.3s;
+            white-space: nowrap;
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Specific colors for each company */
+        .company-logo.microsoft:hover { color: #00a4ef; }
+        .company-logo.thales:hover { color: #e3001b; }
+        .company-logo.google:hover { color: #4285f4; }
+        .company-logo.amazon:hover { color: #ff9900; }
+        .company-logo.meta:hover { color: #0668e1; }
+        .company-logo.kongsberg:hover { color: #00843d; }
+        .company-logo.tesla:hover { color: #cc0000; }
+
+        /* Templates Section */
         .templates-section {
             padding: 2rem 0 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         .templates-grid {
@@ -143,6 +222,12 @@
             object-position: top;
             background: #f1f5f9;
             display: block;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .template-card:hover .template-image {
+            transform: scale(1.05);
         }
 
         .template-info {
@@ -245,6 +330,7 @@
             background: none;
             border: none;
             font-family: Arial, sans-serif;
+            z-index: 1001;
         }
 
         .lightbox-nav {
@@ -273,6 +359,24 @@
         .lightbox-prev { left: 20px; }
         .lightbox-next { right: 20px; }
 
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -293,10 +397,24 @@
 
         .guarantee h3 {
             margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .guarantee p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .logos-container {
+                gap: 2rem;
+            }
+            
+            .company-logo {
+                font-size: 1.2rem;
+            }
+
             .templates-grid {
                 grid-template-columns: 1fr;
             }
@@ -311,6 +429,10 @@
 
             .lightbox-nav {
                 display: none;
+            }
+
+            .cta-section h2 {
+                font-size: 1.75rem;
             }
         }
 
@@ -332,37 +454,73 @@
         .template-card:nth-child(6) { animation-delay: 0.6s; }
         .template-card:nth-child(7) { animation-delay: 0.7s; }
         .template-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Scroll reveal animation for trusted section */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .trusted-by {
+            animation: slideIn 0.8s ease-out;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
             <div class="logo">Elite CV Templates</div>
-            <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank">Get All 20 Templates</a>
+            <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank">Get All 20+ Templates</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="container">
-            <span class="badge">8 Professional Designs</span>
+            <span class="badge">20+ Professional Designs</span>
             <h1>Land Your Dream Job</h1>
-            <p>Stand out with our collection of 20 meticulously designed CV templates.</p>
+            <p>Join thousands of professionals who upgraded their careers with our expertly crafted CV templates.</p>
             <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank" style="font-size: 1.25rem; padding: 1rem 2rem;">Get Instant Access</a>
+        </div>
+    </section>
+
+    <!-- Trusted By Section - Full Width -->
+    <section class="trusted-by">
+        <div class="trusted-header">Trusted by professionals from</div>
+        <div class="logos-container">
+            <div class="company-logo microsoft">Microsoft</div>
+            <div class="company-logo google">Google</div>
+            <div class="company-logo amazon">Amazon</div>
+            <div class="company-logo meta">Meta</div>
+            <div class="company-logo tesla">Tesla</div>
+            <div class="company-logo thales">Thales</div>
+            <div class="company-logo kongsberg">Kongsberg</div>
         </div>
     </section>
 
     <section class="templates-section">
         <div class="container">
+            <div class="section-header">
+                <h2>Sample Templates</h2>
+                <p>8 of our 20+ premium designs. Get the full collection instantly.</p>
+            </div>
             <div class="templates-grid" id="templatesGrid">
                 <!-- Templates will be generated by JavaScript -->
             </div>
         </div>
     </section>
 
+    <section class="cta-section">
+        <div class="container">
+            <h2>And 12 More Unique Designs...</h2>
+            <p>Don't settle for ordinary. Get the complete collection and find your perfect match.</p>
+            <a href="https://elitecvtemplates.gumroad.com/l/zvjdas" class="cta-button" target="_blank" style="font-size: 1.25rem; padding: 1rem 2rem;">Get All 20+ Templates</a>
+        </div>
+    </section>
+
     <section class="container">
         <div class="guarantee">
-            <h3>Stand out among others</h3>
-            <p>.</p>
+            <h3>Stand Out Among Others</h3>
+            <p>Professional designs that get you noticed. ATS-optimized and recruiter-approved.</p>
         </div>
     </section>
 
@@ -443,7 +601,9 @@
             const card = document.createElement('div');
             card.className = 'template-card';
             card.innerHTML = `
-                <img src="${template.file}" alt="${template.name}" class="template-image" onclick="openLightbox(${index})" style="cursor: pointer;">
+                <div style="overflow: hidden;">
+                    <img src="${template.file}" alt="${template.name}" class="template-image" onclick="openLightbox(${index})" loading="lazy">
+                </div>
                 <div class="template-info">
                     <span class="template-number">${index + 1}</span>
                     <h3 class="template-name">${template.name}</h3>
